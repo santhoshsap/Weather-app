@@ -1,54 +1,37 @@
 Weather App
-This Weather App is a simple web application that provides current weather information for a specified location. It fetches data from a weather API and displays details such as temperature, humidity, wind speed, and weather conditions.
+Welcome to the Weather App repository! This project is a web application that provides real-time weather updates for any location. It utilizes HTML, CSS, and JavaScript to deliver a user-friendly interface and fetches data using the OpenWeatherMap API.
 
 Features
-Search for current weather information by city name.
+Live Weather Data: Get up-to-date weather information for your current location or search for any city worldwide.
+5 Days Forecast: You Can See your city 5 days forecast
+Explore Section: You Can See Many Random City Weather On Explore Section
+Add More Citys: You Can Add More Citys
+Technologies Used
+Frontend: HTML, CSS, JAVASCRIPT
+API: OpenWeatherMap
+Icons: Fontawesome
+Additional information
+To get name of the location (city name or area name) by using longitude and latitude :- https://openweathermap.org/api/geocoding-api
 
-Display of temperature, humidity, wind speed, and weather conditions.
+To get current location weather :- https://openweathermap.org/current
 
-Visual representation of weather conditions using icons.
+To get 5 day forecast :- https://openweathermap.org/forecast5
 
+Getting Started
+To get a local copy up and running, follow these simple steps.
+
+Prerequisites
+A modern web browser.
+An API key from OpenWeatherMap Api
 Installation
 Clone the repository:
-
-bash
-Copy
-Edit
-git clone https://github.com/santhoshsap/Weather-app.git
+ git clone https://github.com/kaushalsahu07/weather.git
 Navigate to the project directory:
-
-bash
-Copy
-Edit
-cd Weather-app
-Open the index.html file in your preferred web browser.
-
+cd weather
+Change API key for all the js files
+let apiKey = "Your API Key";
+Open index.html in your browser to view the project.
 Usage
-Open the application in your web browser.
+To use the Weather App, simply enter the name of the city in the search bar and press enter. The app will display the current weather conditions, including temperature, humidity, wind speed, and more.
 
-Enter the name of the city for which you want to retrieve weather information.
-
-Press the search button or hit enter.
-
-The application will display the current weather details for the specified city, including:
-
-Temperature
-
-Humidity
-
-Wind speed
-
-Weather condition (e.g., clear, clouds, drizzle, mist, rain, snow)
-
-Corresponding weather icons will be displayed to visually represent the current weather condition.
-
-Contributing
-Contributions are welcome! If you have suggestions for improvements or new features, feel free to open an issue or submit a pull request.
-
-License
-This project is open-source and available under the MIT License.
-
-Acknowledgements
-This application utilizes weather data from a third-party weather API. Special thanks to the providers of these APIs for their reliable and accurate data services.
-
-Note: Ensure you have an active internet connection to fetch the latest weather data from the API.
+Note :- For Best Experience See This Website on 400*860 
