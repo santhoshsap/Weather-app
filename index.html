@@ -1,0 +1,79 @@
+<html>
+  <head>
+    <title>Weather app</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <section id="section1">
+      <div id="searchbox">
+        <input id="input" type="text" placeholder="Enter the city" />
+        <button id="button"><img src="./Image/search.png" alt="" /></button>
+      </div>
+      <div id="error">
+        <p>invalid city name</p>
+      </div>
+      <div id="displaybox">
+        <img id="widget_img" src="" alt="" />
+        <h1 id="city"></h1>
+        <!-- <h4>City</h4> -->
+        <h2 id="temp"></h2>
+        <!-- <h4>Temperature</h4> -->
+        <br />
+        <div id="bottom_result">
+          <img src="./Image/humidity.png" alt="" />
+          <h2 id="humidity"></h2>
+          <h4>Humidity</h4>
+          <img src="./Image/wind.png" alt="" />
+          <h2 id="windspeed"></h2>
+          <h4>windspeed</h4>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      let buttonbtn = document.getElementById("button");
+      let inputbtn = document.getElementById("input");
+      let api_url =
+        "https://api.openweathermap.org/data/2.5/weather?units=metric";
+      let app_id = "6f27d5316d3a310886c28b56fe3eca87";
+      let city = "new york";
+      buttonbtn.addEventListener("click", () => {
+        process(inputbtn.value);
+        document.querySelector("#displaybox").style.display = "block";
+      });
+
+      async function process(city) {
+        let response = await fetch(api_url + `&appid=${app_id}` + `&q=${city}`);
+        if (response.status == 404) {
+          document.querySelector("#error").style.display = "block";
+          document.querySelector("displaybox").style.display = "none";
+        } else {
+          document.querySelector("#displaybox").style.display = "block";
+          let data = await response.json();
+          console.log(data);
+          document.querySelector("#city").innerHTML = data.name;
+          document.querySelector("#temp").innerHTML = data.main.temp + "°C";
+          document.querySelector("#humidity").innerHTML =
+            data.main.humidity + "%";
+          document.querySelector("#windspeed").innerHTML =
+            data.wind.speed + "km/h";
+
+          if (data.weather[0].main == "Clouds") {
+            document.querySelector("#widget_img").src = "./image/clouds.png";
+          } else if (data.weather[0].main == "Rain") {
+            document.querySelector("#widget_img").src = "./image/rain.png";
+          } else if (data.weather[0].main == "Mist") {
+            document.querySelector("#widget_img").src = "./image/mist.png";
+          } else if (data.weather[0].main == "Snow") {
+            document.querySelector("#widget_img").src = "./image/snow.png";
+          } else if (data.weather[0].main == "Drizzle") {
+            document.querySelector("#widget_img").src = "./image/drizzle.png";
+          }
+
+          document.querySelector("#error").style.display = "none";
+          // document.querySelector("#displaybox").style.display = "block";
+        }
+      }
+    </script>
+  </body>
+</html>
